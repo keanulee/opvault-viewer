@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>OPVault Demo</title>
+  
+  <style>
+  </style>
+</head>
+
+<body>
+  <p>Try these in dev tools console</p>
+  <code>
+    <pre>
+vault.unlock('freddy');
+vault.loadItems();
+vault.getItem('Hulu').then(console.log);
+    </pre>
+  </code>
+
+  <form>
+    <input type="password">
+  </form>
+
+  <script>
+    var items = {};
+    function ld(data) {
+      Object.assign(items, data);
+    }
+  </script>
+  <script src="1Password.opvault/default/profile.js"></script>
+  <script src="1Password.opvault/default/band_0.js"></script>
+  <script src="1Password.opvault/default/band_1.js"></script>
+  <script src="1Password.opvault/default/band_2.js"></script>
+  <script src="1Password.opvault/default/band_3.js"></script>
+  <script src="1Password.opvault/default/band_4.js"></script>
+  <script src="1Password.opvault/default/band_5.js"></script>
+  <script src="1Password.opvault/default/band_6.js"></script>
+  <script src="1Password.opvault/default/band_7.js"></script>
+  <script src="1Password.opvault/default/band_8.js"></script>
+  <script src="1Password.opvault/default/band_9.js"></script>
+  <script src="1Password.opvault/default/band_A.js"></script>
+  <script src="1Password.opvault/default/band_B.js"></script>
+  <script src="1Password.opvault/default/band_C.js"></script>
+  <script src="1Password.opvault/default/band_D.js"></script>
+  <script src="1Password.opvault/default/band_E.js"></script>
+  <script src="1Password.opvault/default/band_F.js"></script>
+  <script src="opvault.js"></script>
+  <script>
+    var vault = new OPVault(profile, items);
+
+    document.querySelector('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      vault.unlock(e.target.elements[0].value).catch(console.log);
+    });
+  </script>
+</body>
+</html>
